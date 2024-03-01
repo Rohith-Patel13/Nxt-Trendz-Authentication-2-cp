@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie'
 // import {Redirect} from 'react-router-dom'
-import {withRouter} from 'react-router-dom'
+import {withRouter, Link} from 'react-router-dom'
 
 import './index.css'
 
@@ -50,12 +50,15 @@ const Header = props => {
             alt="website logo"
           />
 
-          <button type="button" className="nav-mobile-btn">
+          <button
+            type="button"
+            className="nav-mobile-btn"
+            onClick={logoutBtnClicked}
+          >
             <img
               src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-log-out-img.png"
               alt="nav logout"
               className="nav-bar-img"
-              onClick={logoutBtnClicked}
             />
           </button>
         </div>
@@ -67,17 +70,21 @@ const Header = props => {
             alt="website logo"
           />
           <ul className="nav-menu">
-            <li className="nav-menu-item" onClick={homeRoute}>
+            <Link to="/" className="nav-menu-item" onClick={homeRoute}>
               Home
-            </li>
+            </Link>
 
-            <li className="nav-menu-item" onClick={productsRoute}>
+            <Link
+              to="/products"
+              className="nav-menu-item"
+              onClick={productsRoute}
+            >
               Products
-            </li>
+            </Link>
 
-            <li className="nav-menu-item" onClick={cartRoute}>
+            <Link to="/cart" className="nav-menu-item" onClick={cartRoute}>
               Cart
-            </li>
+            </Link>
           </ul>
           <button
             type="button"
