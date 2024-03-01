@@ -5,7 +5,7 @@ import Header from '../Header'
 import './index.css'
 
 const Home = () => {
-  const jwt = Cookies.get('jsonWebTokenName')
+  const jwt = Cookies.get('jwt_token')
   console.log(jwt)
 
   if (!jwt) {

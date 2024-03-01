@@ -4,7 +4,7 @@ import {Redirect} from 'react-router-dom'
 import Header from '../Header/index'
 
 const Products = () => {
-  const jwt = Cookies.get('jsonWebTokenName')
+  const jwt = Cookies.get('jwt_token')
   console.log(jwt)
 
   if (!jwt) {

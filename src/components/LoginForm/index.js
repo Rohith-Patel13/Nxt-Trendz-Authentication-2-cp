@@ -1,5 +1,6 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
+import {Redirect} from 'react-router-dom'
 
 import './index.css'
 
@@ -22,7 +23,7 @@ class LoginForm extends Component {
   onSubmitSuccess = jwtToken => {
     const {history} = this.props
     console.log(jwtToken)
-    Cookies.set('jsonWebTokenName', jwtToken, {expires: 1})
+    Cookies.set('jwt_token', jwtToken, {expires: 1})
     history.replace('/')
   }
 
@@ -52,6 +53,11 @@ class LoginForm extends Component {
 
   renderPasswordField = () => {
     const {password} = this.state
+
+    const jwtGet = Cookies.get('jwt_token')
+    if (jwtGet) {
+      return <Redirect to="/" />
+    }
 
     return (
       <>
